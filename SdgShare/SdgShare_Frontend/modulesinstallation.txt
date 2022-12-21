@@ -1,0 +1,7 @@
+npm install @sanity/client 
+npm install @sanity/image-url 
+npm install react-google-login //error
+npm install react-icons 
+npm install react-loader-spinner 
+npm install react-masonry-css 
+npm install react-router-dom uuid
