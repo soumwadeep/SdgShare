@@ -1,7 +1,15 @@
 npm install @sanity/client 
+
 npm install @sanity/image-url 
-npm install react-google-login //error
+
+npm install react-google-login //If Facing Error Then Use The Below Command
+
+npm install react-google-login --legacy-peer-deps //Working Fine
+
 npm install react-icons 
+
 npm install react-loader-spinner 
+
 npm install react-masonry-css 
+
 npm install react-router-dom uuid
