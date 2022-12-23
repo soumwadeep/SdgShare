@@ -2,9 +2,9 @@ npm install @sanity/client
 
 npm install @sanity/image-url 
 
-npm install react-google-login //If Facing Error Then Use The Below Command
+npm install react-google-login //Now Its Closed
 
-npm install react-google-login --legacy-peer-deps //Working Fine
+npm i @react-oath/google jwt-decode //New Working Google Login
 
 npm install react-icons 
 
