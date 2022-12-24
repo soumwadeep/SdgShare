@@ -2,9 +2,7 @@ npm install @sanity/client
 
 npm install @sanity/image-url 
 
-npm install react-google-login //Now Its Closed
-
-npm i @react-oath/google jwt-decode //New Working Google Login
+npm install @react-oath/google jwt-decode //New Working Google Login
 
 npm install react-icons 
 

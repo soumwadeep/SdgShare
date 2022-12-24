@@ -1,16 +1,25 @@
 import React from 'react'
-import GoogleLogin from 'react-google-login';
 import {useNavigate} from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc';
 import sharevideo from '../assets/backgroundvideo.mp4';
 import logo from '../assets/logocropped.png';
+import {GoogleOAuthProvider} from '@react-oauth/google';
+import {GoogleLogin,googleLogout} from '@react-oauth/google';
 const Login = () => {
   const responseGoogle = (response) => 
   {
-    console.log(response);
+    localStorage.setItem('user',JSON.stringify(response.profileObj));
+    const {name,googleId,imageUrl,email} = response.profileObj;
+    const doc = {
+      _id:googleId,
+      _type:"user",
+      userName:name,
+      image:imageUrl,
+    }
   }
   return (
     <>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
       <div className="flex justify-start items-center flex-col h-screen">
         <div className="relative w-full h-full">
           <video 
@@ -37,8 +46,8 @@ const Login = () => {
               width="150px"
               />
               <div className="shadow-2xl">
-                <GoogleLogin
-                clientId=''
+               <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                 render={(renderProps)=>(
                   <button type="button"
                   className="bg-mainColor 
@@ -66,6 +75,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </GoogleOAuthProvider>
     </>
   )
 }
