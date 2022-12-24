@@ -7,21 +7,23 @@ import {
   GoogleLogin,
   googleLogout,
 } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 import { client } from "../client";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const responseGoogle = (response) => {
-    localStorage.setItem("user", JSON.stringify(response));
+    // localStorage.setItem('user', JSON.stringify(response.profileObj));
 
-    const { clientId, name, imageUrl } = response;
+    var profileObj = jwt_decode(response.credential);
 
-    const doc = {
-      _id: clientId,
+    const doc = 
+    {
+      _id: profileObj.sub,
       _type: "user",
-      userName: name,
-      image: imageUrl,
+      userName: profileObj.name,
+      image: profileObj.picture,
     };
 
     client.createIfNotExists(doc)
