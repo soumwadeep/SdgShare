@@ -13,8 +13,8 @@ import { client } from "../client";
 const Login = () => {
   const navigate = useNavigate();
 
-  const responseGoogle = (response) => {
-    // localStorage.setItem('user', JSON.stringify(response.profileObj));
+  const responseGoogle = (response) => 
+  {
 
     var profileObj = jwt_decode(response.credential);
 
@@ -24,6 +24,7 @@ const Login = () => {
       _type: "user",
       userName: profileObj.name,
       image: profileObj.picture,
+      email: profileObj.email,
     };
 
     client.createIfNotExists(doc)
