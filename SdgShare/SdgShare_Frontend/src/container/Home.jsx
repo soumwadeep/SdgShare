@@ -79,7 +79,7 @@ const Home = () => {
               onClick={() => setToggleSidebar(true)}
             />
             <Link to="/">
-              <img src={logo} alt="logo" className="w-28" />
+              <img src={logo} alt="logo" className="w-32" />
             </Link>
             <Link to={`user-profile/${user?._id}`}>
               <img
