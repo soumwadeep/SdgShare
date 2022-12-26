@@ -15,8 +15,12 @@ const Login = () => {
 
   const responseGoogle = (response) => 
   {
-
+    
     var profileObj = jwt_decode(response.credential);
+     
+    localStorage.setItem("user", JSON.stringify(profileObj));
+
+    // console.log(profileObj);
 
     const doc = 
     {
