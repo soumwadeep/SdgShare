@@ -11,7 +11,6 @@ import { fetchUser } from '../utils/fetchUser'
 const Pin = ({pin:{postedBy,image,_id,destination, save}}) => {
 
   const [postHovered, setPostHovered] = useState(false);
-  const [savingPost, setSavingPost] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,8 +21,6 @@ const Pin = ({pin:{postedBy,image,_id,destination, save}}) => {
   const savePin = (id) => {
     if(!alreadySaved)
     {
-      setSavingPost(true);
-
       client
       .patch(id)
       .setIfMissing({save: []})
@@ -38,9 +35,16 @@ const Pin = ({pin:{postedBy,image,_id,destination, save}}) => {
       .commit()
       .then(() => {
         window.location.reload();
-        setSavingPost(false);
       })
     }
+  }
+
+  const deletePin = (id) => {
+    client
+    .delete(id)
+    .then(() => {
+      window.location.reload();
+    })
   }
 
   return (
@@ -137,6 +141,55 @@ const Pin = ({pin:{postedBy,image,_id,destination, save}}) => {
                       </button>
                     )}
                   </div>
+                  <div className='flex
+                  justify-between
+                  items-center
+                  gap-2
+                  w-full
+                  '>
+                    {destination && (
+                      <a 
+                        href={destination}
+                        target='_blank'
+                        rel='noreferrer'
+                        className='bg-white
+                        flex
+                        items-center
+                        gap-2
+                        text-black
+                        font-bold
+                        p-2
+                        pl-4
+                        pr-4
+                        rounded-full
+                        opacity-70
+                        hover:100
+                        hover:shadow-md'>
+                        <BsFillArrowUpRightCircleFill />
+                        {destination.length > 20 ? destination.slice(8,20):destination.slice(8)}
+                        </a>
+                    )}
+                    {postedBy?._id === user.sub && (
+                      <button
+                      type='button'
+                      onClick={(e) =>{
+                        e.stopPropagation();
+                        deletePin(_id);
+                      }}
+                      className='bg-white
+                      opacity-70
+                      hover:opacity-100
+                      text-dark
+                      font-bold
+                      text-base
+                      rounded-3xl
+                      hover:shadow-md
+                      outlined-none
+                      '>
+                        <AiTwotoneDelete/>
+                      </button>
+                    )}
+                    </div>
               </div>
               </div>
             )}
