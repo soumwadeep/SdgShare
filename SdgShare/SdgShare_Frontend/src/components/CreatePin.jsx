@@ -267,7 +267,7 @@ const CreatePin = ({ user }) => {
           />
           <input
             type="url"
-            vlaue={destination}
+            value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Dest. Link(Eg: https://www.google.com)"
             className="outline-none 

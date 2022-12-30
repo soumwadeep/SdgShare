@@ -1,56 +1,44 @@
-import {React,useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { React, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import{client} from '../client';
-import { feedQuery, searchQuery } from '../utils/data';
+import { client } from "../client";
+import { feedQuery, searchQuery } from "../utils/data";
 
-import MasonryLayout from './MasonryLayout';
-import Spinner from './Spinner';
+import MasonryLayout from "./MasonryLayout";
+import Spinner from "./Spinner";
 
-const Feed = () => 
-{
-
+const Feed = () => {
   const [loading, setLoading] = useState(false);
   const [pins, setPins] = useState(null);
-  const {categoryId} = useParams();
+  const { categoryId } = useParams();
 
-  useEffect(() => 
-  {
-    if(categoryId)
-    {
+  useEffect(() => {
+    if (categoryId) {
       const query = searchQuery(categoryId);
 
-      client.fetch(query)
-      .then((data) => 
-      {
+      client.fetch(query).then((data) => {
         setPins(data);
         setLoading(false);
-      })
-    }
-    else
-    {
-      client.fetch(feedQuery)
-      .then((data) => 
-      {
+      });
+    } else {
+      client.fetch(feedQuery).then((data) => {
         setPins(data);
         setLoading(false);
-      })
+      });
     }
-  }, [categoryId])
-  
+  }, [categoryId]);
 
-  if(loading)
-  {
-    return <Spinner message="We Are Adding New Ideas To Your Feed!"/>
+  if (loading) {
+    return <Spinner message="We Are Adding New Ideas To Your Feed!" />;
   }
+
+  if (!pins?.length) return <h2>No Pins Available</h2>;
 
   return (
     <>
-        <div>
-          {pins && <MasonryLayout pins={pins}/>}
-        </div>
+      <div>{pins && <MasonryLayout pins={pins} />}</div>
     </>
-  )
-}
+  );
+};
 
-export default Feed
+export default Feed;
