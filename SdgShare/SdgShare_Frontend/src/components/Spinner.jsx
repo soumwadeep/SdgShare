@@ -11,10 +11,9 @@ const Spinner = ({message}) => {
         w-full
         h-full">
             <Circles 
-            type="Circles"
             color="#ff25e5"
-            height={50}
-            width={200}
+            // height={50}
+            // width={200}
             className="m-5"
             />
 
