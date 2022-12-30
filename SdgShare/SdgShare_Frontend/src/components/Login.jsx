@@ -34,7 +34,7 @@ const Login = () => {
     client.createIfNotExists(doc)
     .then(() => 
     {
-      navigate("/home", { replace: true });
+      navigate("/", { replace: true });
     });
   };
 
