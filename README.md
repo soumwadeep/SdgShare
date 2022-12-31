@@ -1,10 +1,9 @@
-# MasterReactJs(Dev-Branch)
-World's Most Complex ReactJs Projects
+# About First Project i.e. SDG SHARE
 
-# First Project : SDG SHARE
+## It's World's Best Free Platform For Sharing Different Images.
 
-## World's Best Free Platform For Sharing Different Images.
-## Front-End Link: https://sdgshare.netlify.app/
+## Front-End Link: https://sdgshare.soumwadeepguha.tech/
+(Hosted In Netlify)
+
 ## Back-End Link: https://sdgshare.sanity.studio/
- 
-# Second Project - (Under Construction)
+(Hosted In Sanity)
