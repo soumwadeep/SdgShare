@@ -2,7 +2,7 @@
 
 ## It's World's Best Free Platform For Sharing Different Images.
 
-## Front-End Link: https://sdgshare.soumwadeepguha.tech/
+## Front-End Link: https://sdgshare.soumwadeepguha.com/
 (Hosted In Netlify)
 
 ## Back-End Link: https://sdgshare.sanity.studio/
